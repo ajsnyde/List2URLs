@@ -74,14 +74,14 @@ public class GUI {
 		inputTxt.setMinimumSize(new Dimension(100, 0));
 		splitPane.setLeftComponent(inputTxt);
 		
-		JTextArea outputTxt = new JTextArea();
+		final JTextArea outputTxt = new JTextArea();
 		outputTxt.setText("output");
 		outputTxt.setMinimumSize(new Dimension(100, 0));
 		splitPane.setRightComponent(outputTxt);
 		
 		fetchBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				fetcher.fetch(inputTxt.getText());
+				outputTxt.setText(fetcher.fetch(inputTxt.getText()));
 			}
 		});
 	}
