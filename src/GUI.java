@@ -12,11 +12,14 @@ import javax.swing.JButton;
 import javax.swing.DropMode;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Window.Type;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class GUI {
 
 	Fetcher fetcher = new Fetcher();
-	private JFrame frame;
+	private JFrame frmBatchUrlRetriever;
 
 	/**
 	 * Launch the application.
@@ -26,7 +29,7 @@ public class GUI {
 			public void run() {
 				try {
 					GUI window = new GUI();
-					window.frame.setVisible(true);
+					window.frmBatchUrlRetriever.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,33 +48,30 @@ public class GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 591, 448);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBatchUrlRetriever = new JFrame();
+		frmBatchUrlRetriever.setTitle("Batch URL Retriever - Youtube");
+		frmBatchUrlRetriever.setBounds(100, 100, 591, 448);
+		frmBatchUrlRetriever.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel topPanel = new JPanel();
-		frame.getContentPane().add(topPanel, BorderLayout.NORTH);
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("New radio button");
-		topPanel.add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
-		topPanel.add(rdbtnNewRadioButton);
+		frmBatchUrlRetriever.getContentPane().add(topPanel, BorderLayout.NORTH);
+		topPanel.setLayout(new BorderLayout(0, 0));
 		
 		JButton fetchBtn = new JButton("Fetch!");
+		fetchBtn.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
 		topPanel.add(fetchBtn);
 		
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		frmBatchUrlRetriever.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JSplitPane splitPane = new JSplitPane();
-		panel.add(splitPane);
+		panel.add(splitPane, BorderLayout.CENTER);
 		
 		final JTextArea inputTxt = new JTextArea();
 		inputTxt.setText("input");
-		inputTxt.setMinimumSize(new Dimension(100, 0));
+		inputTxt.setMinimumSize(new Dimension(300, 0));
 		splitPane.setLeftComponent(inputTxt);
 		
 		final JTextArea outputTxt = new JTextArea();
