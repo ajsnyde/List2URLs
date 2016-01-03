@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
 public class Fetcher {	// REGEX FOR FIRST VIDEO: /<a aria-hidden="true" href="/watch/
 	String fetch(String rawInput){
 		// String =>String array
@@ -19,15 +21,6 @@ public class Fetcher {	// REGEX FOR FIRST VIDEO: /<a aria-hidden="true" href="/w
 	    	System.out.println(URL);
 	    	list += (URL+'\n');
 	    }
-	    
-		// Filter 
-		
-		
-		// grab lines, one by one, send to html fetcher
-	    
-		
-		// send return to output
-		
 		return list;
 	}
 	

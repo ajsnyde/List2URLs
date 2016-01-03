@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class GUI {
 
@@ -79,11 +81,27 @@ public class GUI {
 		outputTxt.setMinimumSize(new Dimension(100, 0));
 		splitPane.setRightComponent(outputTxt);
 		
+		JMenuBar menuBar = new JMenuBar();
+		frmBatchUrlRetriever.setJMenuBar(menuBar);
+		
+		JMenuItem mntmSettings = new JMenuItem("Settings");
+		menuBar.add(mntmSettings);
+		
+		JMenuItem mntmStats = new JMenuItem("Stats");
+		menuBar.add(mntmStats);
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mntmAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				About about = new About();
+			}
+		});
+		menuBar.add(mntmAbout);
+		
 		fetchBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				outputTxt.setText(fetcher.fetch(inputTxt.getText()));
 			}
 		});
 	}
-
 }
