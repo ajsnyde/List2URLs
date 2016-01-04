@@ -1,19 +1,13 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
-import javax.swing.DropMode;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Window.Type;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
