@@ -88,6 +88,11 @@ public class GUI {
 		menuBar.add(mntmSettings);
 		
 		JMenuItem mntmStats = new JMenuItem("Stats");
+				mntmStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				StatsGUI stats = new StatsGUI();
+			}
+		});
 		menuBar.add(mntmStats);
 		
 		JMenuItem mntmAbout = new JMenuItem("About");
