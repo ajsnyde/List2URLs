@@ -14,10 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<variableList>
-		<variable>
-			<name>alligator</name>
-			<value>file:/C:/Users/Dread/Downloads/american-alligator.jpg</value>
-		</variable>
-	</variableList>
 </projectDescription>

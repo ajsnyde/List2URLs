@@ -23,7 +23,7 @@ public class About extends JDialog {
 			lblCreatedByAddison.setHorizontalAlignment(SwingConstants.CENTER);
 			lblCreatedByAddison.setVerticalTextPosition(JLabel.BOTTOM);
 			lblCreatedByAddison.setHorizontalTextPosition(JLabel.CENTER);
-			ImageIcon icon = new ImageIcon("american-alligator.jpg");
+			ImageIcon icon = new ImageIcon(getClass().getResource("/american-alligator.jpg"));
 			Image icon2 = icon.getImage().getScaledInstance(183, 132, Image.SCALE_DEFAULT);
 			lblCreatedByAddison.setIcon(new ImageIcon(icon2));			
 			contentPanel.add(lblCreatedByAddison);
