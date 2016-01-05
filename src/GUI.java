@@ -79,6 +79,11 @@ public class GUI {
 		frmBatchUrlRetriever.setJMenuBar(menuBar);
 		
 		JMenuItem mntmSettings = new JMenuItem("Settings");
+		mntmSettings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Settings settings = new Settings();
+			}
+		});
 		menuBar.add(mntmSettings);
 		
 		JMenuItem mntmStats = new JMenuItem("Stats");
