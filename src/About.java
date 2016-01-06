@@ -1,18 +1,30 @@
 import java.awt.BorderLayout;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.Window.Type;
 
 public class About extends JDialog {
 
+	private static boolean enabled = false;
 	private final JPanel contentPanel = new JPanel();
 
 	public About() {
-		setBounds(100, 100, 220, 299);
+		setResizable(false);
+		setType(Type.POPUP);
+		setTitle("About");
+		if(enabled)
+			return;
+		else
+			enabled = true;
+		setBounds(100, 100, 234, 214);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -28,7 +40,16 @@ public class About extends JDialog {
 			lblCreatedByAddison.setIcon(new ImageIcon(icon2));			
 			contentPanel.add(lblCreatedByAddison);
 		}
-		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	    addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+            	enabled = false;
+                e.getWindow().dispose();
+            }
+        });
+		//this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.setVisible(true);
 	}
 
