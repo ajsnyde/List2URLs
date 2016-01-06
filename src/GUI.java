@@ -16,6 +16,7 @@ public class GUI {
 
 	Fetcher fetcher = new Fetcher();
 	private JFrame frmBatchUrlRetriever;
+	Singleton stats = new Singleton();
 
 	/**
 	 * Launch the application.
@@ -89,7 +90,8 @@ public class GUI {
 		JMenuItem mntmStats = new JMenuItem("Stats");
 				mntmStats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				StatsGUI stats = new StatsGUI();
+				stats.getStats();
+				//StatsGUI stats = new StatsGUI();
 			}
 		});
 		menuBar.add(mntmStats);
