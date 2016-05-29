@@ -30,7 +30,7 @@ public class StatsGUI extends JDialog {
 			textField.setEnabled(false);
 			textField.setEditable(false);
 			
-			textField.setText(Fetcher.totalTime/1000000000.0 + "");
+			//textField.setText(Fetcher.totalTime/1000000000.0 + "");
 			contentPanel.add(textField);
 			textField.setColumns(10);
 		}
@@ -40,7 +40,7 @@ public class StatsGUI extends JDialog {
 		}
 		{
 			textField_3 = new JTextField();
-			textField_3.setText(((double)Fetcher.totalTime/Fetcher.totalTrials)/1000000000.0 + "");
+			//textField_3.setText(((double)Fetcher.totalTime/Fetcher.totalTrials)/1000000000.0 + "");
 			textField_3.setEnabled(false);
 			textField_3.setEditable(false);
 			textField_3.setColumns(10);
@@ -52,7 +52,7 @@ public class StatsGUI extends JDialog {
 		}
 		{
 			textField_1 = new JTextField();
-			textField_1.setText(Fetcher.htmlGrabTime/1000000000.0 + "");
+			//textField_1.setText(Fetcher.htmlGrabTime/1000000000.0 + "");
 			textField_1.setEnabled(false);
 			textField_1.setEditable(false);
 			textField_1.setColumns(10);
@@ -64,7 +64,7 @@ public class StatsGUI extends JDialog {
 		}
 		{
 			textField_2 = new JTextField();
-			textField_2.setText(Fetcher.regexTime/1000000000.0 + "");
+			//textField_2.setText(Fetcher.regexTime/1000000000.0 + "");
 			textField_2.setEnabled(false);
 			textField_2.setEditable(false);
 			textField_2.setColumns(10);

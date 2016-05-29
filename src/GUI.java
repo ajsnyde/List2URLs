@@ -9,22 +9,26 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
-import java.awt.Component;
+import javax.swing.JSpinner;
+import javax.swing.JLabel;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class GUI {
-
-	Fetcher fetcher = new Fetcher();
+	public static List<String> output = Collections.synchronizedList(new ArrayList<String>());
+	public final static JTextArea outputTxt = new JTextArea();
 	private JFrame frmBatchUrlRetriever;
 	Singleton stats = new Singleton();
-
-	/**
-	 * Launch the application.
-	 */
+	OpManager mgr = new OpManager();
+	
 	public static void main(String[] args) {
 		try {
 			// Set System L&F
@@ -88,14 +92,15 @@ public class GUI {
 		splitPane.setLeftComponent(scrollPane);
 
 		final JTextArea inputTxt = new JTextArea();
+		inputTxt.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		scrollPane.setViewportView(inputTxt);
 		inputTxt.setText("input");
 		inputTxt.setMinimumSize(new Dimension(300, 0));
 
 		JScrollPane scrollPane_1 = new JScrollPane();
 		splitPane.setRightComponent(scrollPane_1);
+		outputTxt.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
-		final JTextArea outputTxt = new JTextArea();
 		scrollPane_1.setViewportView(outputTxt);
 		outputTxt.setText("output");
 		outputTxt.setMinimumSize(new Dimension(100, 0));
@@ -127,11 +132,44 @@ public class GUI {
 			}
 		});
 		menuBar.add(mntmAbout);
+		
+		JLabel lblThreads = new JLabel("Threads:");
+		menuBar.add(lblThreads);
+		
+		final JSpinner spinner = new JSpinner();
+		spinner.setValue(1);
+		spinner.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				mgr.MAX_THREADS.set((int)spinner.getValue());
+			}
+		});
+		spinner.setPreferredSize(new Dimension(0, 20));
+		menuBar.add(spinner);
+		spinner.setValue(OpManager.MAX_THREADS.get());
+		
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				refresh();
+			}
+		});
+		menuBar.add(btnRefresh);
 
 		fetchBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				outputTxt.setText(fetcher.fetch(inputTxt.getText()));
+				inputTxt.setEnabled(false);
+				inputTxt.setEditable(false);
+				OpManager.main(inputTxt.getText());
+				refresh();
+				inputTxt.setEditable(true);
+				inputTxt.setEnabled(true);
 			}
 		});
+	}
+	public static void refresh(){
+		String outputStr = "";
+		for(String s: output)
+			outputStr += s + "\n";
+		outputTxt.setText(outputStr);
 	}
 }
