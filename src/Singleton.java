@@ -8,6 +8,6 @@ public class Singleton {
       if(instance == null || !instance.isShowing()) {
          instance = new StatsGUI();
       }
-      return instance;
+      return instance; 
    }
 }

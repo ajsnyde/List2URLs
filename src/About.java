@@ -17,7 +17,7 @@ public class About extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 
 	public About() {
-		setResizable(false);
+		setResizable(false); 
 		setType(Type.POPUP);
 		setTitle("About");
 		if(enabled)
