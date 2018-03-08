@@ -1,3 +1,4 @@
+package fetcher;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
@@ -5,12 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Fetcher { // REGEX FOR FIRST VIDEO: /<a aria-hidden="true" href="/watch/
-	static long totalTrials = 0;
-	static long regexTime = 0;
-	static long htmlGrabTime = 0;
-	static long totalTime = 0;
+	public static long totalTrials = 0;
+	public static long regexTime = 0;
+	public static long htmlGrabTime = 0;
+	public static long totalTime = 0;
 
-	String fetch(String rawInput) {
+	public String fetch(String rawInput) {
 		// String =>String array
 		// mostly redundent code for failures mid-test
 		htmlGrabTime = 0;

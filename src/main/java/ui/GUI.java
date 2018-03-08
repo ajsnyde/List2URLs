@@ -1,3 +1,4 @@
+package ui;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,6 +8,10 @@ import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import fetcher.Fetcher;
+import fetcher.Singleton;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

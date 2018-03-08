@@ -1,7 +1,12 @@
+package ui;
+
 import java.awt.BorderLayout;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import fetcher.Fetcher;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.GridLayout;

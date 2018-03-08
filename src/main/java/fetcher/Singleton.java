@@ -1,7 +1,9 @@
+package fetcher;
+import ui.StatsGUI;
 
 public class Singleton {
    private static StatsGUI instance = null;
-   protected Singleton() {
+   public Singleton() {
       // Exists only to defeat instantiation.
    }
    public static StatsGUI getStats() {
